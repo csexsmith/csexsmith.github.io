@@ -1,0 +1,9 @@
+.girl {
+    width: 100%; /* Full width of the parent */
+    min-height: 100vh; /* At least 50% viewport height */
+    background: url('../../assets/animegirl.png'); /* Background image */
+    background-size: contain; /* Scales image to fit */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* No repeating */
+    z-index: 9; /* Stacking order */
+}

@@ -1,0 +1,38 @@
+.toolbar {
+    position: fixed; /* Keeps it in place when scrolling */
+    top: 0; /* Aligns it with the top of the viewport */
+    left: 0; /* Positions it on the left side */
+    width: 60px; /* Width of the bar */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #442c2c; /* Dark background */
+    display: flex; /* Flexbox to align content */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    z-index: 9; /* Ensures it's above other elements */
+    padding-top: 20%; /* Add space at the top */
+}
+
+.toolbar ul {
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Removes padding */
+    margin: 0; /* Removes margin */
+}
+
+.toolbar ul li {
+    margin: 20px 0; /* Spacing between list items */
+}
+
+.toolbar ul li a {
+    text-decoration: none; /* Removes underline */
+    color: white; /* White text */
+    font-size: 14px; /* Adjust font size */
+    display: block; /* Ensures clickable area fits link */
+    text-align: center; /* Center-align text */
+    padding: 10px 0; /* Adds padding for better clickability */
+}
+
+.toolbar ul li a:hover {
+    background-color: #7a2d2d; /* Lighter background on hover */
+    border-radius: 10px; /* Softens the corners */
+    transition: background 0.3s ease; /* Smooth hover effect */
+}

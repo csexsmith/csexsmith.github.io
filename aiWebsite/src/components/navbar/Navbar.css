@@ -1,0 +1,45 @@
+nav {
+  width: 100%; /* Full width of the navigation bar */
+  background: #333; /* Dark gray background */
+  color: #fff; /* White text */
+  position: fixed; /* Fixed position to stay at the top of the page */
+  top: 0; /* Positions the nav at the top of the viewport */
+  left: 0; /* Aligns the nav to the left */
+  display: flex; /* Flexbox layout for horizontal alignment */
+  align-items: center; /* Vertically centers the nav items */
+  justify-content: space-between; /* Spaces items evenly within the nav */
+  z-index: 10; /* Ensures the nav appears above other elements */
+  transition: top 0.3s; /* Smooth transition for the hiding effect */
+}
+
+nav.scrolled {
+  top: -100px; /* Hide the nav by moving it off-screen */
+}
+
+nav ul li {
+  display: inline-block; /* Displays list items inline (horizontally) */
+  list-style: none; /* Removes the default bullet points from list items */
+  margin: 5px 10px; /* Adds spacing around each list item */
+  font-size: 16px; /* Sets the font size of the list item text */
+}
+
+nav ul li a {
+  text-decoration: none; /* Removes the underline from links */
+  display: block; /* Makes the anchor tag a block element, so it fills the entire list item */
+  text-align: center; /* Centers the link text horizontally */
+  padding: 10px 30px; /* Adds padding for better clickability and spacing */
+}
+
+nav ul li a:hover {
+  background-color: #211829; /* Changes the background to white when hovered */
+  padding: 14px 30px; /* Increases padding on hover for visual effect */
+  border-radius: 30px; /* Rounds the corners of the background on hover */
+  cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+  border: 0; /* Removes any borders (default for links) */
+  outline: 0; /* Removes the outline around the link when focused */
+  transition: background 0.3s ease; /* Smooth background color transition on hover */
+}
+
+.logo {
+  width: 55px; /* Specifies the width of the logo */
+}
