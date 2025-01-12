@@ -1,9 +1,13 @@
 import React from 'react'
 import './Toolbar.css'
+import useScrollVisibility from '../../hooks/useScrollVisibility'
+import { use } from 'react'
 
 const Toolbar = () => {
+  const isVisible = useScrollVisibility();
+
   return (
-    <div class="toolbar">
+    <div className={`toolbar ${isVisible ? '' : 'hidden'}`}>
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>

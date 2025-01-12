@@ -6,4 +6,5 @@
     background-position: center center; /* Centers the image */
     background-repeat: no-repeat; /* No repeating */
     z-index: 9; /* Stacking order */
+    margin-top: 100px; /* Moves the image down by 100px */
 }
