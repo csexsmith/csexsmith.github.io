@@ -1,0 +1,9 @@
+-make grid for stats
+	-switch based on coin
+-implement news function
+	-find good layout
+	-adjust layout based on window size
+-find way to show png on link hover
+-wallet connection
+-wallet tracking - follow wallets
+-price and volume predictions with risk assessment

@@ -1,16 +1,19 @@
 import React from 'react'
 import Navbar from './components/navbar/Navbar'
-import Animegirl from './components/animegirl/Animegirl'
+import Home from './pages/Home';
+import News from './pages/News';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Toolbar from './components/toolbar/Toolbar'
 
 const App = () => {
-  return(
-    <div>
+  return (
+    <Router>
       <Navbar />
-      <Animegirl />
-    </div>
-  )
-}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App

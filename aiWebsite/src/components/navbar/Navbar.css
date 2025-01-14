@@ -25,12 +25,12 @@ nav {
     text-decoration: none; /* Removes the underline from links */
     display: block; /* Makes the anchor tag a block element, so it fills the entire list item */
     text-align: center; /* Centers the link text horizontally */
-    padding: 10px 30px; /* Adds padding for better clickability and spacing */
+    padding: 10px 20px; /* Adds padding for better clickability and spacing */
   }
   
   nav ul li a:hover {
     background-color: #211829; /* Changes the background to white when hovered */
-    padding: 14px 30px; /* Increases padding on hover for visual effect */
+    padding: 14px 20px; /* Increases padding on hover for visual effect */
     border-radius: 30px; /* Rounds the corners of the background on hover */
     cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
     border: 0; /* Removes any borders (default for links) */
