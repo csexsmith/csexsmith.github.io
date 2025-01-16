@@ -1,5 +1,5 @@
 import React from 'react'
-import Animegirl from '../components/animegirl/Animegirl'
+import Animegirl from '../../components/animegirl/Animegirl'
 
 const Home = () => {
   return (
