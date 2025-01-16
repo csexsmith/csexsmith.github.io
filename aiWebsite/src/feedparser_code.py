@@ -241,14 +241,14 @@ def send_to_telegram(source, title, link, sentiment, negative_words, positive_wo
     if response.status_code == 200:
         print("Message sent successfully!")
         #NEED TO GO IN AND ERASE THE FIRST ITEMS OF THE FILE EVERY 24 HOURS OR SOMETHING
-        filepath = ''
+        filepath = 'C:/Users/Carter Sexsmith/Documents/website/csexsmith.github.io/aiWebsite/src/out.txt'
         with open(filepath, 'a') as f:
             f.write(ai_sentiment + ',' + sentiment)
     else:
         print(f"Failed to send message: {response.text}")
 
-classifier1 = joblib.load(r"C:\Users\jamma\OneDrive\Desktop\Marketing Scripts\tweet_classifier.pkl")
-vectorizer1 = joblib.load(r"C:\Users\jamma\OneDrive\Desktop\Marketing Scripts\tweet_vectorizer.pkl")
+#classifier1 = joblib.load(r"C:\Users\jamma\OneDrive\Desktop\Marketing Scripts\tweet_classifier.pkl")
+#vectorizer1 = joblib.load(r"C:\Users\jamma\OneDrive\Desktop\Marketing Scripts\tweet_vectorizer.pkl")
 def is_article_relevant(title):
     keyword_val = 0
     for keyword in keywords:
@@ -265,8 +265,8 @@ def is_article_relevant(title):
 import requests
 from bs4 import BeautifulSoup
 import joblib
-classifier = joblib.load(r"C:\Users\jamma\OneDrive\Desktop\Marketing Scripts\tweet_classifier.pkl")
-vectorizer = joblib.load(r"C:\Users\jamma\OneDrive\Desktop\Marketing Scripts\tweet_vectorizer.pkl")
+#classifier = joblib.load(r"C:\Users\jamma\OneDrive\Desktop\Marketing Scripts\tweet_classifier.pkl")
+#vectorizer = joblib.load(r"C:\Users\jamma\OneDrive\Desktop\Marketing Scripts\tweet_vectorizer.pkl")
 def fetch_feed_updates():
     global latest_articles
     for source, url in rss_feeds:
@@ -321,7 +321,7 @@ def fetch_feed_updates():
                         #
                         #
                         #
-                        driver_path = 'C:/Webdrivers/chromedriver.exe'
+                        driver_path = 'C:/webDrivers/chromedriver-win64/chromedriver.exe'
                         chrome_service = Service(driver_path)
                         chrome_options = Options()
                         chrome_options.add_argument("--headless")
