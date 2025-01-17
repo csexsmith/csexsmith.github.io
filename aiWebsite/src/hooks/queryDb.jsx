@@ -9,8 +9,6 @@ const useQueryDb = (query) => {
   useEffect(() => {
     if (!query) return;
 
-    console.log('Running query:', query); // Debug: Check how often this runs
-
     const fetchData = async () => {
       setLoading(true);
       setError(null);

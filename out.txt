@@ -1,0 +1,8 @@
+outlet, headline, link, negative, positive, sentiment, presence
+Decrypt, TikTok Influencers Protest Imminent Ban as Demand for Rival RedNote Soars, https://decrypt.co/301023/tiktok-influencers-flex-their-power-one-more-time-for-rival-rednote,ban,win:support,unknown,Positive and Negative items are both present
+NewsBTC, Last Dip For Altcoins? Expert Predicts Final Correction Before Bull Market Resurgence, https://www.newsbtc.com/news/last-dip-for-altcoins-expert-predicts-final-correction-before-bull-market-resurgence/,,win:investment:release:support,unknown,unknown
+DailyCoin, Tether Moves to El Salvador as Crypto Regulations Tighten, https://dailycoin.com/tether-moves-to-el-salvador-as-crypto-regulations-tighten/,,success,unknown,unknown
+CCN, UK Central Bank Sets Up Digital Pound Lab To Gauge CBDC Potential, https://www.ccn.com/news/crypto/uk-central-bank-digital-pound-lab/,,,unknown,unknown
+Blockchain.News, Conflux (CFX) Invites Community Participation in New Bug Bounty Program, https://Blockchain.News/news/conflux-invites-community-participation-new-bug-bounty-program,,innovation:release:support,unknown,unknown
+Blockworks, Gradual tariff proposal fits with previous Trump strategy, https://blockworks.co/news/trump-gradual-tariff-policy,,win:integration,unknown,unknown
+Fortune (Crypto Section), Want to beat inflation? Understand how APY works to grow your wealth, https://fortune.com/article/what-is-apy/,ban,banking:success:support,unknown,Positive and Negative items are both present
