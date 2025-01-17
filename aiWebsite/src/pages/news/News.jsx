@@ -1,24 +1,43 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';  // Import axios for making HTTP requests
 import queryDb from '../../hooks/queryDb';
 import Article from '../../components/article/Article';
 
 const News = () => {
   const [newsArticlesData, setNewsArticlesData] = useState([]);
-  const query = 'SELECT outlet, headline, link FROM news_articles';
+  const query = 'SELECT DISTINCT outlet, headline, link, sentiment FROM news_articles';
 
   const { data, error, loading } = queryDb(query);
 
   useEffect(() => {
-    if (data) {
-      // Transform the data into the format required for rendering
-      const transformedData = data.map((row) => ({
-        title: row.headline,
-        imageUrl: 'https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png', // Placeholder image (replace if image URLs are available in your table)
-        link: row.link, // Link to the article
-      }));
-      setNewsArticlesData(transformedData);
+    if (data && newsArticlesData.length === 0) {
+      // Function to fetch thumbnail image using Microlink API
+      const fetchThumbnail = async (link) => {
+        try {
+          const response = await axios.get(`https://api.microlink.io?url=${link}`);
+          return response.data.data.image?.url || 'https://via.placeholder.com/250';  // Fallback to placeholder image
+        } catch (error) {
+          console.error('Error fetching thumbnail:', error);
+          return 'https://via.placeholder.com/250';  // Fallback image in case of error
+        }
+      };
+
+      const transformedData = data.map(async (row) => {
+        const thumbnail = await fetchThumbnail(row.link);  // Fetch the thumbnail for each article link
+        return {
+          title: row.headline,
+          imageUrl: thumbnail,  // Use fetched thumbnail
+          link: row.link,
+          sentiment: row.sentiment || 'unknown',
+        };
+      });
+
+      // Wait for all async thumbnail fetches to complete before updating the state
+      Promise.all(transformedData).then((result) => {
+        setNewsArticlesData(result);
+      });
     }
-  }, [data]);
+  }, [data, newsArticlesData.length]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -30,7 +49,8 @@ const News = () => {
           key={index}
           title={article.title}
           imageUrl={article.imageUrl}
-          link={article.link} // Pass the link to the Article component if you want clickable articles
+          link={article.link}
+          sentiment={article.sentiment}
         />
       ))}
     </div>
