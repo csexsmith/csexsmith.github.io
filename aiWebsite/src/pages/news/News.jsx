@@ -15,7 +15,10 @@ const News = () => {
       const fetchThumbnail = async (link) => {
         try {
           const response = await axios.get(`https://api.microlink.io?url=${link}`);
-          return response.data.data.image?.url || 'https://via.placeholder.com/250';  // Fallback to placeholder image
+          console.log('Microlink Response:', response.data);  // Check full response
+          const thumbnail = response.data.data.image?.url || 'https://via.placeholder.com/250';  // Fallback image if no image found
+          console.log('Thumbnail:', thumbnail);  // Check the thumbnail URL being used
+          return thumbnail;
         } catch (error) {
           console.error('Error fetching thumbnail:', error);
           return 'https://via.placeholder.com/250';  // Fallback image in case of error

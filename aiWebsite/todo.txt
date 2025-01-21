@@ -1,8 +1,14 @@
--make grid for stats
+--PRIORITY--
+
+-make grid for predictions
 	-switch based on coin
--implement news function
-	-find good layout
-	-adjust layout based on window size
+	-hourly daily etc
+-quant tools demo some shit make it up
+-draft message asking for artists
+	-rewards are early buy in, maybe dev wallet
+
+--BACKBURNER--
+
 -find way to show png on link hover
 -wallet connection
 -wallet tracking - follow wallets
