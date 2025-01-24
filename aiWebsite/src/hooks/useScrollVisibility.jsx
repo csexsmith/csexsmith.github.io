@@ -2,23 +2,25 @@ import { useState, useEffect } from 'react';
 
 const useScrollVisibility = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setIsVisible(true); // Hide when scrolling down
+    const handleMouseMove = (e) => {
+      // Show the navbar if the mouse is near the top of the screen
+      if (e.clientY < 50) { // Adjust the threshold (e.g., 50px from the top)
+        setIsVisible(true);
       } else {
-        setIsVisible(false); // Show when scrolling up
+        setIsVisible(false);
       }
-      setLastScrollY(window.scrollY); // Update last scroll position
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Add event listener for mouse movement
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Cleanup the event listener on unmount
     return () => {
-      window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
+      window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [lastScrollY]);
+  }, []);
 
   return isVisible;
 };

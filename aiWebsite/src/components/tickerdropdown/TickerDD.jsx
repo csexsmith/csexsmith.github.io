@@ -1,27 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { queryDatabase } from '../../backend/api';  // Assuming the queryDatabase method is available
+import { queryDatabase } from '../../backend/api'; // Assuming the queryDatabase method is available
 import './TickerDD.css';
 
-const TickerDD = ({ label, onSelect }) => {
+const TickerDD = ({ label, onSelect, query, includeAll = false }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [tickers, setTickers] = useState([]);
+  const [options, setOptions] = useState([]); // Renamed from 'tickers' to 'options' for generality
   const [selectedOption, setSelectedOption] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  // Fetch tickers from the database on component mount
+  // Fetch options from the database using the provided query
   useEffect(() => {
-    const fetchTickers = async () => {
-      const query = 'SELECT ticker FROM tickers'; // Adjust this query as needed
+    const fetchOptions = async () => {
+      setLoading(true);
       try {
         const data = await queryDatabase(query);
-        const tickersList = data.map((row) => row.ticker); // Assuming response is in { ticker: 'BTC', ... } format
-        setTickers(tickersList);
+        // Assuming the query returns an array of objects with at least one field (e.g., 'ticker')
+        const optionsList = data.map((row) => row.ticker || Object.values(row)[0]); // Fallback to first value if 'ticker' is not present
+
+        // Add "All" option if includeAll is true
+        if (includeAll) {
+          optionsList.unshift('All');
+        }
+
+        setOptions(optionsList);
       } catch (error) {
-        console.error('Error fetching tickers:', error);
+        console.error('Error fetching options:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchTickers();
-  }, []);
+    if (query) {
+      fetchOptions();
+    }
+  }, [query, includeAll]); // Re-fetch when the query or includeAll changes
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -38,20 +50,26 @@ const TickerDD = ({ label, onSelect }) => {
       <label className="label-white">{label}</label>
       <div className="dropdown-container">
         <div className="dropdown-header" onClick={toggleDropdown}>
-          <span>{selectedOption || 'Select a ticker'}</span>
+          <span>{selectedOption || 'Select an option'}</span>
           <span className={`arrow ${isOpen ? 'open' : ''}`}>&#9660;</span>
         </div>
         {isOpen && (
           <div className="dropdown-list">
-            {tickers.map((ticker, index) => (
-              <div
-                key={index}
-                className="dropdown-option"
-                onClick={() => handleOptionClick(ticker)} // Close the dropdown upon selection
-              >
-                {ticker}
-              </div>
-            ))}
+            {loading ? (
+              <div className="dropdown-option">Loading...</div>
+            ) : options.length > 0 ? (
+              options.map((option, index) => (
+                <div
+                  key={index}
+                  className="dropdown-option"
+                  onClick={() => handleOptionClick(option)}
+                >
+                  {option}
+                </div>
+              ))
+            ) : (
+              <div className="dropdown-option">No options available</div>
+            )}
           </div>
         )}
       </div>

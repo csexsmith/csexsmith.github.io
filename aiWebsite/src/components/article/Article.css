@@ -1,8 +1,9 @@
 .news-page {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Fixed column width */
   gap: 20px;
   padding: 20px;
+  justify-items: start; /* Align items to the start of their grid cell */
 }
 
 .news-article {
@@ -12,6 +13,8 @@
   overflow: hidden;
   padding: 15px;
   text-align: center;
+  width: 100%; /* Ensure articles take up the full width of their grid cell */
+  max-width: 300px; /* Optional: Set a max-width for better control */
 }
 
 .news-article-image {

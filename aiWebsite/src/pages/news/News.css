@@ -1,0 +1,71 @@
+.filters-container {
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Space between search bar and dropdown */
+    margin: 20px 0; /* Margin for spacing */
+  }
+  
+  /* Wrapper for the search bar to ensure it stays centered */
+  .search-bar-wrapper {
+    flex: 1; /* Allow the search bar to grow and take available space */
+    max-width: 600px; /* Limit the width of the search bar */
+  }
+  
+  /* Search Bar Styling */
+  .search-bar-container {
+    width: 100%; /* Ensure the search bar takes full width of its container */
+  }
+  
+  .search-bar {
+    width: 100%; /* Ensure the search bar takes full width of its container */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Dropdown for Sorting by Sentiment */
+  .sort-dropdown-container {
+    display: flex;
+    align-items: center; /* Align dropdown and label vertically */
+    gap: 10px; /* Space between label and dropdown */
+  }
+  
+  .sort-dropdown {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .sort-dropdown:focus {
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  .label-white {
+    color: white;
+    font-size: 16px;
+  }
+  
+  /* News Articles Grid */
+  .news-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: start;
+  }

@@ -64,3 +64,15 @@
     color: #666;
     text-align: center;
   }
+
+  /* Container for side-by-side dropdowns */
+.dropdowns-container {
+  display: flex;
+  gap: 20px; /* Space between dropdowns */
+  margin-bottom: 20px; /* Space below the dropdowns */
+}
+
+/* Ensure the dropdowns take equal width */
+.custom-dropdown {
+  flex: 1; /* Each dropdown will take equal space */
+}

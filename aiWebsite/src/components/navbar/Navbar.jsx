@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import useScrollVisibility from '../../hooks/useScrollVisibility';
 import './Navbar.css';
 import logo from '../../assets/logo.png';
-
+import WalletConnect from '../walletconnect/WalletConnect'; // Import the WalletConnect component
 
 const Navbar = () => {
   const isVisible = useScrollVisibility();
@@ -17,6 +17,7 @@ const Navbar = () => {
         <li><Link to="/news">News</Link></li>
         <li><Link to="/predictions">Predictions</Link></li>
         <li><Link to="/quant">Quant</Link></li>
+        <li><WalletConnect /></li> {/* Add the WalletConnect component here */}
       </ul>
     </nav>
   );
