@@ -1,5 +1,5 @@
 import React from 'react'
-import './animegirl.css'
+import './Animegirl.css'
 
 const Animegirl = () => {
   return (
