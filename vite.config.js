@@ -16,6 +16,6 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['buffer', 'process'], // Ensure polyfills are included
+    include: ['buffer', 'process', '@solana/wallet-adapter-react'], // Ensure polyfills are included
   },
 });
